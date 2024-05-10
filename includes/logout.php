@@ -1,0 +1,11 @@
+<?php include "db.php";
+session_start();
+$_SESSION['userID'] = null;
+$_SESSION['userName'] = null;
+$_SESSION['password'] = null;
+$_SESSION['firstName'] = null;
+$_SESSION['lastName'] = null;
+$_SESSION['user_email'] = null;
+$_SESSION['image'] = null;
+$_SESSION['user_role'] = null;
+header("Location:{$_SERVER['HTTP_REFERER']}");

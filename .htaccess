@@ -1,0 +1,12 @@
+
+# HTID:22144404: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:22144404:
+
+RewriteEngine on
+
+RewriteRule ^(index|registration|contact|category|post|post_author|forgot|secretPageSQL|login|reset|contactanyone|blog_List|about)$ $1.php [NC,L]
+
+
+RewriteRule ^(admin/(admin_index|admin_posts|admin_categories|admin_comments|admin_users|admin_profile|admin_user_data))$ $1.php [NC,L]
+

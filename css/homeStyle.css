@@ -1,0 +1,30 @@
+.text-center {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    color: white;
+    padding: 15px;
+    border-radius: 15%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 15px;
+    background: grey;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: #1d5b1d solid 10px;
+}
+
+.hero-text {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000000;
+}
+
