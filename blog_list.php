@@ -1,5 +1,5 @@
 <?php include "includes/header.php" ?>
-<?php include "includes/db.php" ?>
+<?php //include "includes/db.php" ?>
 <!-- Navigation -->
 <?php include "includes/navigation.php" ?>
 
@@ -14,12 +14,12 @@
 			<?php
 			$query = "SELECT * FROM posts ";
 			$query .= "WHERE post_status = 'Published'";
-			$posts_rows = mysqli_query($connection, $query);
-			$post_counts = mysqli_num_rows($posts_rows);
+			//			$posts_rows = mysqli_query($connection, $query);
+			//			$post_counts = mysqli_num_rows($posts_rows);
 
 
 			$pageMax = 4;
-			$post_counts = ceil($post_counts / $pageMax);
+			//			$post_counts = ceil($post_counts / $pageMax);
 
 
 			if (isset($_GET["page"]))
@@ -34,28 +34,33 @@
 
 			$query = "SELECT * FROM posts ";
 			$query .= "WHERE post_status = 'Published' ORDER BY post_id DESC LIMIT $page, $pageMax";
-			$select_all_posts_query = mysqli_query($connection, $query);
-			if (mysqli_num_rows($select_all_posts_query) == 0)
-				echo "<h1 class='text-center text-danger'>NO POST SORRY</h1>";
+			//			$select_all_posts_query = mysqli_query($connection, $query);
+			//			if (mysqli_num_rows($select_all_posts_query) == 0)
+			//				echo "<h1 class='text-center text-danger'>NO POST SORRY</h1>";
+			$x = 1;
+			$images = [
+				"20230207_063250.png",
+				"20230207_063147.png"
+			];
+			while ($x < 200) {
+				$x++;
+				$post_id = 1;
+				$post_user_id = 1;
+				$post_title = "test" . $x;
+				$post_author = "Author" . $x;
+				$post_date = "2020-12-12";
+				$post_image = $images[$x % 2];
+				$post_content = substr("loremmmmmm", 0, 400);
+				$post_status = "Published";
 
-			while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-				$post_id = $row["post_id"];
-				$post_user_id = $row["post_user_id"];
-				$post_title = $row["post_title"];
-				$post_author = $row["post_author"];
-				$post_date = $row["post_date"];
-				$post_image = $row["post_image"];
-				$post_content = substr($row["post_content"], 0, 400);
-				$post_status = $row["post_status"];
-
-				$ownerPost = '';
-				$query = "SELECT user_role FROM users WHERE user_id = $post_user_id";
-				$selectUser = mysqli_query($connection, $query);
-				if (mysqli_num_rows($selectUser) >= 1) {
-					if ($row = mysqli_fetch_assoc($selectUser))
-						if (bindec($row['user_role']) & 0b100)
-							$ownerPost = "an Owner's Post";
-				}
+				$ownerPost = 'Omar';
+//				$query = "SELECT user_role FROM users WHERE user_id = $post_user_id";
+//				$selectUser = mysqli_query($connection, $query);
+//				if ($x >=1) {
+//					if ($row = mysqli_fetch_assoc($selectUser))
+//						if (bindec($row['user_role']) & 0b100)
+//							$ownerPost = "an Owner's Post";
+//				}
 				?>
                 <h1 class="page-header">
                     Page Heading

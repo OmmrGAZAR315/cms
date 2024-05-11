@@ -18,18 +18,19 @@
             <ul class="nav navbar-nav">
 				<?php
 				$query = "SELECT * FROM categories";
-				$select_all_categories_query = mysqli_query($connection, $query);
-				while ($row = mysqli_fetch_assoc($select_all_categories_query)) {
-					$cat_title = $row["cat_title"];
-					$cat_id = $row["cat_id"];
+//				$select_all_categories_query = mysqli_query($connection, $query);
+                $x=1;
+				while ($x<5) {
+//					$cat_title = $row["cat_title"];
+//					$cat_id = $row["cat_id"];
 
 					$category_class = '';
 					$pageName = basename($_SERVER["PHP_SELF"]);
 					if (isset($_GET["pid"]) && $_GET["pid"] == $cat_id)
 						$category_class = 'active';
+                    $x++;
 
-
-					echo "<li class='$category_class'><a href='category?pid=$cat_id'>$cat_title</a> </li>";
+					echo "<li class='$category_class'><a href='category?pid=1'>test+{$x}</a> </li>";
 				} ?>
                 <li><a href="admin/admin_index">Admin</a></li>
                 <li><a href="contact">Contact</a></li>
@@ -54,24 +55,24 @@
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> <?php
-								if (isset($_SESSION["firstName"]))
-									echo "<a href='admin/admin_profile'>Profile</a>";
-								else {
-									$visited = visitedUser();
-									switch ($_SERVER["PHP_SELF"]) {
-										case ('/cms/login.php') :
-											echo "<a href='registration?visited=$visited'>Sign Up</a>";
-											break;
-										case ('forgot.php'):
-										case('/cms/registration.php'):
-											echo "<a href='login?visited=$visited'>Sign In</a>";
-											break;
-										default:
-											echo "<a href='login?visited=$visited'>Sign In</a>";
-											echo "<li class='divider'></li>";
-											echo "<li><a href='registration?visited=$visited'>Sign Up</a></li>"; ?>
-										<?php }
-								}
+//								if (isset($_SESSION["firstName"]))
+//									echo "<a href='admin/admin_profile'>Profile</a>";
+//								else {
+//									$visited = visitedUser();
+//									switch ($_SERVER["PHP_SELF"]) {
+//										case ('/cms/login.php') :
+//											echo "<a href='registration?visited=$visited'>Sign Up</a>";
+//											break;
+//										case ('forgot.php'):
+//										case('/cms/registration.php'):
+//											echo "<a href='login?visited=$visited'>Sign In</a>";
+//											break;
+//										default:
+//											echo "<a href='login?visited=$visited'>Sign In</a>";
+//											echo "<li class='divider'></li>";
+//											echo "<li><a href='registration?visited=$visited'>Sign Up</a></li>"; ?>
+<!--										--><?php //}
+//								}
 								?>
 
                             </a>
